@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "*.tex": "latex"
+    },
+    "[latex]": {
+        "editor.wordWrap": "on"
+    },
+}

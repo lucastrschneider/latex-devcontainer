@@ -1,0 +1,75 @@
+{
+  "image": "ghcr.io/lucastrschneider/latex-docker:full",
+  "name": "LaTeX",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "james-yu.latex-workshop",
+        "valentjn.vscode-ltex"
+      ],
+
+      "settings": {
+        // LaTeX Workshop settings
+        "latex-workshop.latex.outDir": ".out/",
+        "latex-workshop.latex.recipe.default": "build-pdf",
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "build-pdf",
+            "tools": [
+              "latexmk-pdf"
+            ]
+          },
+          {
+            "name": "build-lua",
+            "tools": [
+              "latexmk-lua"
+            ]
+          }
+        ],
+        "latex-workshop.latex.tools": [
+          {
+            "name": "latexmk-pdf",
+            "command": "latexmk",
+            "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-pdf",
+              "-outdir=%OUTDIR%",
+              "%DOC%"
+            ]
+          },
+          {
+            "name": "latexmk-lua",
+            "command": "latexmk",
+            "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-pdflua",
+              "-outdir=%OUTDIR%",
+              "%DOC%"
+            ]
+          }
+        ],
+
+        // chktex
+        "latex-workshop.linting.chktex.enabled": true,
+        "latex-workshop.linting.chktex.exec.path": "/usr/local/bin/chktex",
+
+        // latexindent
+        "latex-workshop.formatting.latex": "latexindent",
+        "latex-workshop.formatting.latexindent.args": [
+          "-c",
+          "%DIR%/",
+          "%TMPFILE%",
+          "-y=defaultIndent: '%INDENT%'"
+        ],
+
+        // syntex
+        "latex-workshop.synctex.afterBuild.enabled": true
+      }
+    }
+  }
+}
