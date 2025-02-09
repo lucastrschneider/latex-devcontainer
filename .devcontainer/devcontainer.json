@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/lucastrschneider/latex-docker:full",
+  "image": "ghcr.io/lucastrschneider/latex-docker:medium",
   "name": "LaTeX",
 
   "customizations": {
@@ -12,7 +12,7 @@
       "settings": {
         // LaTeX Workshop settings
         "latex-workshop.latex.outDir": ".out/",
-        "latex-workshop.latex.recipe.default": "build-pdf",
+        "latex-workshop.latex.recipe.default": "build-lua",
         "latex-workshop.latex.recipes": [
           {
             "name": "build-pdf",
@@ -56,7 +56,6 @@
 
         // chktex
         "latex-workshop.linting.chktex.enabled": true,
-        "latex-workshop.linting.chktex.exec.path": "/usr/local/bin/chktex",
 
         // latexindent
         "latex-workshop.formatting.latex": "latexindent",
