@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/lucastrschneider/latex-docker:medium
+      options: --user root
 
     steps:
       - name: Checkout github repository
