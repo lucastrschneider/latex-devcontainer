@@ -1,0 +1,33 @@
+name: Build Latex
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-store-pdf:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/lucastrschneider/latex-docker:medium
+
+    steps:
+      - name: Checkout github repository
+        uses: actions/checkout@v4
+
+      - name: Compile latex document
+        run: |
+          latexmk -file-line-error -pdflua -output-directory=.out main.tex
+
+      - name: Store pdf artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-pdf
+          path: |
+            .out/main.pdf
+            .out/main.log
+          if-no-files-found: error
+          retention-days: 5
