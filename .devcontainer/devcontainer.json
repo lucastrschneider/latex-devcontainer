@@ -6,7 +6,8 @@
     "vscode": {
       "extensions": [
         "james-yu.latex-workshop",
-        "valentjn.vscode-ltex"
+        "valentjn.vscode-ltex",
+        "EditorConfig.EditorConfig"
       ],
 
       "settings": {
